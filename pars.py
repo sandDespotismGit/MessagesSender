@@ -4,7 +4,7 @@ import re
 
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"}
 def get_info():
-    for count in range(0, 5, 1):
+    for count in range(0, 1186, 1):
         url = f'https://manufacturers.ru/companies?type=4577&page={count}'
         pages = requests.get(url, headers=headers)
         soup = BeautifulSoup(pages.text, 'html.parser')
