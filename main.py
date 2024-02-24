@@ -21,10 +21,12 @@ def send_email(message, subject, recipients):
         return f"{_ex}\n Неверный логин или пароль."
 
 def main():
+    
     excel_data = pd.read_excel('data.xlsx')
     e = excel_data['Почта'].tolist()
-    with open("message.txt", encoding='UTF-8') as file:
-        message = file.read()
+    with open("index.html") as file:
+        template = file.read()
+        message = MIMEText(template, "html")
     subject = input("Введите тему сообщения: \n>>> ")
     for recipient in e:
         send_email(message, subject, recipient)
