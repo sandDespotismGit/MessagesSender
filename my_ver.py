@@ -186,19 +186,19 @@ p {font-size: 12px; color: #444444 !important; font-family: "Lucida Grande", "Lu
 def send_html(html_string, subject, sender, recipient):
     msg = email.message.Message()
     msg['Subject'] = subject
-    msg['From'] = 'dima7303@yandex.ru'
+    msg['From'] = ''
     msg['To'] = recipient
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(html_string)
     s = smtplib.SMTP('smtp.yandex.ru: 587')
     s.starttls()
     # Login Credentials for sending the mail
-    s.login(msg['From'], 'vehgrfdikwjqlhif')
+    s.login(msg['From'], '')
     s.sendmail(msg['From'], [msg['To']], msg.as_bytes())
 
 
 def main():
-    send_html(text, 'Второй отдел МИЭТ', 'dima7303@yandex.ru', 'rapirotuta@gmail.com')
+    send_html(text, '', '', '')
 
 
 if __name__ == '__main__':
